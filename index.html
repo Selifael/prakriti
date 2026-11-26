@@ -40,7 +40,14 @@ a{color:inherit}
 nav{position:sticky;top:0;z-index:20;background:var(--g-nav);color:#2a1a12;border-bottom:1px solid rgba(42,26,18,.15)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(5vw,16px);flex-wrap:wrap}
 .logo{font:24px Marcellus,serif;text-decoration:none;display:flex;align-items:center;gap:10px}
-.links{display:flex;gap:22px;flex-wrap:wrap;font-weight:500}.links a{text-decoration:none;padding:8px 0}.links a:hover{text-decoration:underline}
+.links{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.links a{text-decoration:none;display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;font:600 17px Figtree,sans-serif;color:#2a1a12;
+background:linear-gradient(180deg,#fffaf0 0%,#fbe3ad 55%,#f4c46b 100%);border:1px solid rgba(120,60,10,.28);
+box-shadow:inset 0 2px 0 rgba(255,255,255,.95),inset 0 -3px 0 rgba(150,80,20,.22),0 6px 14px -6px rgba(110,50,5,.55);
+transition:transform .15s,box-shadow .15s,background .2s}
+.links a:hover{transform:translateY(-2px);background:linear-gradient(180deg,#fffdf7,#fde9bd 55%,#f7cd7c);box-shadow:inset 0 2px 0 #fff,inset 0 -3px 0 rgba(150,80,20,.22),0 10px 20px -8px rgba(110,50,5,.6)}
+.links a:active{transform:translateY(2px);box-shadow:inset 0 3px 6px rgba(110,50,5,.35),0 2px 4px -2px rgba(110,50,5,.4)}
+.links a.on{color:#fff8ec;background:linear-gradient(180deg,#f08a3e 0%,#d9532e 60%,#b8381f 100%);border-color:rgba(90,20,5,.4);box-shadow:inset 0 2px 0 rgba(255,220,180,.6),inset 0 -3px 0 rgba(80,15,0,.3),0 8px 18px -8px rgba(150,40,10,.7)}
 /* hero */
 .hero{background:var(--g-sun);color:#2a1a12;padding-top:clamp(28px,4vw,56px);position:relative;overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
@@ -135,13 +142,39 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer p{max-width:70ch}
 .ver{background:rgba(255,255,255,.1);padding:4px 10px;border-radius:999px;white-space:nowrap}
 @media(max-width:900px){.grid3{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:760px){.hero .wrap,.sig .wrap,.founder .wrap{grid-template-columns:minmax(0,1fr)}.links{display:none}.stage{max-width:420px}}
+@media(max-width:760px){.hero .wrap,.sig .wrap,.founder .wrap{grid-template-columns:minmax(0,1fr)}.links{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding:4px 2px 8px}.links a{flex:none;font-size:16px;min-height:44px;padding:0 18px}.stage{max-width:420px}}
 @media(max-width:520px){.steps{grid-template-columns:minmax(0,1fr)}.res{grid-template-columns:minmax(0,1fr)}.tag{display:none}}
-@media(prefers-reduced-motion:reduce){.yantra{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+@media(prefers-reduced-motion:reduce){.links a{transition:none}.yantra{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+
+/* ===== v1.4 : boutons en relief partout ===== */
+.btn,.add,.fb,.fin,.opt{transition:transform .15s,box-shadow .15s,background .2s,border-color .2s}
+.b-ink,.add,.news .btn{background:linear-gradient(180deg,#5a3a28 0%,#2a1a12 60%,#180e09 100%);color:#fff6e6;border:1px solid #120a06;
+box-shadow:inset 0 2px 0 rgba(255,230,200,.22),inset 0 -3px 0 rgba(0,0,0,.45),0 8px 18px -8px rgba(40,15,0,.75)}
+.b-ink:hover,.add:hover,.news .btn:hover{transform:translateY(-2px);background:linear-gradient(180deg,#6b4632,#36221a 60%,#1e120c);box-shadow:inset 0 2px 0 rgba(255,230,200,.28),inset 0 -3px 0 rgba(0,0,0,.45),0 12px 24px -10px rgba(40,15,0,.8)}
+.b-ghost,.b-cream{background:linear-gradient(180deg,#fffaf0 0%,#fbe3ad 55%,#f4c46b 100%);color:#2a1a12;border:1px solid rgba(120,60,10,.3);
+box-shadow:inset 0 2px 0 rgba(255,255,255,.95),inset 0 -3px 0 rgba(150,80,20,.22),0 7px 16px -7px rgba(110,50,5,.55)}
+.b-ghost:hover,.b-cream:hover{transform:translateY(-2px);background:linear-gradient(180deg,#fffdf7,#fde9bd 55%,#f7cd7c);box-shadow:inset 0 2px 0 #fff,inset 0 -3px 0 rgba(150,80,20,.22),0 11px 22px -9px rgba(110,50,5,.6)}
+.btn:active,.add:active,.fb:active,.fin:active,.opt:active{transform:translateY(2px);box-shadow:inset 0 3px 7px rgba(60,25,0,.35),0 2px 4px -2px rgba(60,25,0,.4)}
+.add.ok{background:linear-gradient(180deg,#5fae88,#2f5d4a 60%,#1f4234);border-color:#173328}
+.opt{border-radius:999px;padding:14px 24px;background:linear-gradient(180deg,var(--card) 0%,color-mix(in srgb,var(--tur) 14%,var(--card)) 100%);border:1px solid var(--line);
+box-shadow:inset 0 2px 0 rgba(255,255,255,.7),inset 0 -3px 0 rgba(150,80,20,.12),0 6px 14px -8px rgba(110,50,5,.4);font-weight:500}
+.opt:hover{transform:translateY(-2px);border-color:var(--tur);background:linear-gradient(180deg,#fffaf0,#fbe3ad);color:#2a1a12;box-shadow:inset 0 2px 0 #fff,inset 0 -3px 0 rgba(150,80,20,.2),0 10px 20px -9px rgba(110,50,5,.55)}
+.fb{background:linear-gradient(180deg,var(--card),color-mix(in srgb,var(--tur) 12%,var(--card)));border:1px solid var(--line);
+box-shadow:inset 0 2px 0 rgba(255,255,255,.7),inset 0 -3px 0 rgba(150,80,20,.12),0 5px 12px -7px rgba(110,50,5,.45)}
+.fb:hover{transform:translateY(-2px);border-color:var(--tur)}
+.fb[aria-pressed=true]{background:linear-gradient(180deg,#f08a3e 0%,#d9532e 60%,#b8381f 100%);color:#fff8ec;border-color:rgba(90,20,5,.4);box-shadow:inset 0 2px 0 rgba(255,220,180,.6),inset 0 -3px 0 rgba(80,15,0,.3),0 8px 18px -8px rgba(150,40,10,.7)}
+.fin{background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.03));border:1px solid rgba(243,234,217,.35);
+box-shadow:inset 0 2px 0 rgba(255,255,255,.18),inset 0 -3px 0 rgba(0,0,0,.25),0 6px 14px -8px rgba(0,0,0,.6)}
+.fin:hover{transform:translateY(-2px);background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.06))}
+.fin[aria-pressed=true]{background:linear-gradient(180deg,#fffaf0,#f3e3c4);color:#16302a;box-shadow:inset 0 2px 0 #fff,inset 0 -3px 0 rgba(0,0,0,.15),0 8px 16px -8px rgba(0,0,0,.6)}
+.chip{box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 3px 8px -4px rgba(110,50,5,.4)}
+.box,.it{transition:transform .2s,box-shadow .2s}.box:hover,.it:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(110,50,5,.55)}
+.news input{box-shadow:inset 0 3px 6px rgba(110,50,5,.18)}
+@media(prefers-reduced-motion:reduce){.btn,.add,.fb,.fin,.opt,.box,.it{transition:none}}
 </style>
 </head>
 <body>
-<div class="ver" style="position:fixed;right:10px;bottom:10px;z-index:30;background:#2a1a12;color:#f6ead8;font-size:12px">v1.3</div>
+<div class="ver" style="position:fixed;right:10px;bottom:10px;z-index:30;background:#2a1a12;color:#f6ead8;font-size:12px">v1.4</div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="petal" viewBox="0 0 20 40"><path d="M10 0C18 12 18 28 10 40C2 28 2 12 10 0Z"/></symbol>
 <symbol id="ok" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.5 8.3l2.2 2.2 4.8-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
@@ -228,7 +261,7 @@ footer p{max-width:70ch}
 
 <footer class="band"><div class="wrap">
 <p>Prakriti · Rituels ayurvédiques · Côte d'Azur<br>Nos produits sont des produits de bien-être et de soin cosmétique. Ils ne sont pas des médicaments et ne remplacent pas un avis médical.<br>Photos d'ambiance : Unsplash et Pexels (licences libres).</p>
-<p><span class="ver">Maquette v1.3 · 26/11/2026</span></p>
+<p><span class="ver">Maquette v1.4 · 26/11/2026</span></p>
 </div></footer>
 
 <script>
@@ -272,11 +305,11 @@ return `<svg class="cof" viewBox="0 0 400 270" role="img" aria-label="Illustrati
 </svg>`;};
 let i=0,ans=[];const qb=document.getElementById('qbox');
 const rq=()=>{if(i>=Q.length)return rr();const[q,o]=Q[i];
-qb.innerHTML=`<div class="bar"><i style="width:${i/Q.length*100}%"></i></div><div class="qn">Question ${i+1} sur ${Q.length}</div><h3>${q}</h3><div class="opts">${o.map((a,k)=>`<button class="opt" data-k="${a[1]}">${a[0]}</button>`).join('')}</div><div class="qnav">${i?'<button class="link" id="back">← Question précédente</button>':'<span></span>'}<span style="color:var(--soft);font-size:14px">Répondez spontanément</span></div>`;
+qb.innerHTML=`<div class="bar"><i style="width:${i/Q.length*100}%"></i></div><div class="qn">Question ${i+1} sur ${Q.length}</div><h3>${q}</h3><div class="opts">${o.map((a,k)=>`<button class="opt" data-k="${a[1]}">${a[0]}</button>`).join('')}</div><div class="qnav">${i?'<button class="btn b-cream" id="back" style="min-height:44px;padding:0 18px;font-size:15px">← Question précédente</button>':'<span></span>'}<span style="color:var(--soft);font-size:14px">Répondez spontanément</span></div>`;
 qb.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{ans[i]=b.dataset.k;i++;rq()});
 const bk=document.getElementById('back');if(bk)bk.onclick=()=>{i--;rq()};};
 const rr=()=>{const c={V:0,P:0,K:0};ans.forEach(a=>c[a]++);const top=Object.keys(c).sort((a,b)=>c[b]-c[a])[0];const d=D[top];
-qb.innerHTML=`<div class="bar"><i style="width:100%"></i></div><div class="res"><div class="seal" style="background:${d.g}">${d.n}</div><div><div class="qn">Votre dosha dominant</div><h3 style="font-size:30px">${d.n} · ${d.el}</h3><p>${d.txt}</p><div class="ph"><img src="${PH[top]}" alt="Ambiance du ${d.box}"><span>Photo d'ambiance</span></div><p style="margin-top:-6px"><b>${d.box}</b> · <span class="price" style="font-size:22px">${BOX[top].p}</span></p><div class="mix">${['V','P','K'].map(k=>`<div><span>${D[k].n}</span><span class="t"><i style="width:${Math.round(c[k]/Q.length*100)}%;background:${D[k].g}"></i></span><b>${Math.round(c[k]/Q.length*100)} %</b></div>`).join('')}</div><div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn b-ink" href="#box-${top}">Voir le ${d.box}</a><button class="link" id="again">Refaire le quiz</button></div></div></div>`;
+qb.innerHTML=`<div class="bar"><i style="width:100%"></i></div><div class="res"><div class="seal" style="background:${d.g}">${d.n}</div><div><div class="qn">Votre dosha dominant</div><h3 style="font-size:30px">${d.n} · ${d.el}</h3><p>${d.txt}</p><div class="ph"><img src="${PH[top]}" alt="Ambiance du ${d.box}"><span>Photo d'ambiance</span></div><p style="margin-top:-6px"><b>${d.box}</b> · <span class="price" style="font-size:22px">${BOX[top].p}</span></p><div class="mix">${['V','P','K'].map(k=>`<div><span>${D[k].n}</span><span class="t"><i style="width:${Math.round(c[k]/Q.length*100)}%;background:${D[k].g}"></i></span><b>${Math.round(c[k]/Q.length*100)} %</b></div>`).join('')}</div><div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn b-ink" href="#box-${top}">Voir le ${d.box}</a><button class="btn b-cream" id="again">Refaire le quiz</button></div></div></div>`;
 document.getElementById('again').onclick=()=>{i=0;ans=[];rq()};
 document.querySelectorAll('.box').forEach(b=>b.style.outline=b.id==='box-'+top?'3px solid var(--tur)':'none');};
 rq();
@@ -308,8 +341,9 @@ shop.querySelectorAll('.add').forEach(b=>b.onclick=()=>{nb++;document.getElement
 filt.innerHTML=Object.keys(CAT).map((k,j)=>`<button class="fb" aria-pressed="${j===0}" data-c="${k}">${CAT[k]}</button>`).join('');
 filt.querySelectorAll('.fb').forEach(b=>b.onclick=()=>{filt.querySelectorAll('.fb').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');rs(b.dataset.c)});
 rs('all');
+{const L=[...document.querySelectorAll('.links a')];const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){L.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-45% 0px -50% 0px'});L.forEach(a=>{const t=document.querySelector(a.getAttribute('href'));if(t)io.observe(t)});}
 document.getElementById('play').onclick=()=>{document.getElementById('vid').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/hUdHi7ufuuA?autoplay=1&rel=0" title="Vidéo : le PLA" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';};
-document.getElementById('boxes').innerHTML=['V','P','K'].map(k=>`<article class="box" id="box-${k}"><div class="top" style="background:${D[k].g}"><small>${D[k].el}</small><h3 style="font-size:26px;margin:.2em 0 0">${D[k].box}</h3></div><div class="ph"><img src="${PH[k]}" alt="Ambiance du ${D[k].box}" loading="lazy"><span>Photo d'ambiance</span></div><ul>${BOX[k].items.map(t=>`<li><svg width="16" height="16" style="color:${D[k].c}"><use href="#ok"/></svg><span>${t}</span></li>`).join('')}</ul><div class="foot"><span class="price">${BOX[k].p}</span><a class="btn b-ghost" style="color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)" href="#quiz">Choisir</a></div></article>`).join('');
+document.getElementById('boxes').innerHTML=['V','P','K'].map(k=>`<article class="box" id="box-${k}"><div class="top" style="background:${D[k].g}"><small>${D[k].el}</small><h3 style="font-size:26px;margin:.2em 0 0">${D[k].box}</h3></div><div class="ph"><img src="${PH[k]}" alt="Ambiance du ${D[k].box}" loading="lazy"><span>Photo d'ambiance</span></div><ul>${BOX[k].items.map(t=>`<li><svg width="16" height="16" style="color:${D[k].c}"><use href="#ok"/></svg><span>${t}</span></li>`).join('')}</ul><div class="foot"><span class="price">${BOX[k].p}</span><a class="btn b-cream" href="#quiz">Choisir</a></div></article>`).join('');
 /* yantra generator */
 const yan=(cols,petals)=>{const P=[];const ring=(r,n,s,col,w)=>{for(let k=0;k<n;k++)P.push(`<use href="#petal" x="-${s/2}" y="-${r+s*2}" width="${s}" height="${s*2}" fill="${col}" transform="rotate(${k*360/n})" opacity="${w}"/>`)};
 let o=`<g transform="translate(200 200)">`;
