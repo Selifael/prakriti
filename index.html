@@ -38,7 +38,7 @@ a{color:inherit}
 .b-ink{background:#2a1a12;color:#fff6e6}.b-ghost{background:transparent;color:#2a1a12;box-shadow:inset 0 0 0 2px #2a1a12}
 /* nav */
 nav{position:sticky;top:0;z-index:20;background:var(--g-nav);color:#2a1a12;border-bottom:1px solid rgba(42,26,18,.15)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(5vw,16px);flex-wrap:wrap}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(4vw,14px);flex-wrap:nowrap;position:relative}
 .logo{font:24px Marcellus,serif;text-decoration:none;display:flex;align-items:center;gap:10px}
 .links{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .links a{text-decoration:none;display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;font:600 17px Figtree,sans-serif;color:#2a1a12;
@@ -142,7 +142,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer p{max-width:70ch}
 .ver{background:rgba(255,255,255,.1);padding:4px 10px;border-radius:999px;white-space:nowrap}
 @media(max-width:900px){.grid3{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:760px){.hero .wrap,.sig .wrap,.founder .wrap{grid-template-columns:minmax(0,1fr)}.links{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding:4px 2px 8px}.links a{flex:none;font-size:16px;min-height:44px;padding:0 18px}.stage{max-width:420px}}
+@media(max-width:760px){.hero .wrap,.sig .wrap,.founder .wrap{grid-template-columns:minmax(0,1fr)}.stage{max-width:420px}}
 @media(max-width:520px){.steps{grid-template-columns:minmax(0,1fr)}.res{grid-template-columns:minmax(0,1fr)}.tag{display:none}}
 @media(prefers-reduced-motion:reduce){.links a{transition:none}.yantra{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
 
@@ -171,10 +171,27 @@ box-shadow:inset 0 2px 0 rgba(255,255,255,.18),inset 0 -3px 0 rgba(0,0,0,.25),0 
 .box,.it{transition:transform .2s,box-shadow .2s}.box:hover,.it:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(110,50,5,.55)}
 .news input{box-shadow:inset 0 3px 6px rgba(110,50,5,.18)}
 @media(prefers-reduced-motion:reduce){.btn,.add,.fb,.fin,.opt,.box,.it{transition:none}}
+
+/* ===== v1.5 : menu adaptatif ordi / tablette / téléphone ===== */
+.logo{flex:none;white-space:nowrap}
+.navr{display:flex;gap:10px;align-items:center;flex:none}
+.cartb,.burger{min-height:46px;padding:0 18px;gap:8px}
+.cnt{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 6px;border-radius:999px;background:linear-gradient(180deg,#f8b04a,#e0632e);color:#2a1a12;font-size:13px;font-weight:700}
+.burger{display:none}
+.links a{white-space:nowrap}
+@media(max-width:1240px){.links{gap:7px}.links a{font-size:15.5px;padding:0 15px;min-height:44px}}
+@media(max-width:1100px){
+ .burger{display:inline-flex}
+ .links{display:none;position:absolute;top:100%;left:0;right:0;padding:16px max(4vw,14px) 20px;background:var(--g-nav);grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;box-shadow:0 18px 30px -18px rgba(80,30,0,.55);border-bottom:1px solid rgba(42,26,18,.15)}
+ .links.open{display:grid}
+ .links a{justify-content:center;font-size:17px;min-height:50px}}
+@media(max-width:640px){.links{grid-template-columns:repeat(2,minmax(0,1fr))}.logo{font-size:21px}}
+@media(max-width:430px){.lbl{display:none}.cartb,.burger{padding:0 14px;min-height:44px}.navr{gap:8px}.links{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:340px){.logo svg{display:none}}
 </style>
 </head>
 <body>
-<div class="ver" style="position:fixed;right:10px;bottom:10px;z-index:30;background:#2a1a12;color:#f6ead8;font-size:12px">v1.4</div>
+<div class="ver" style="position:fixed;right:10px;bottom:10px;z-index:30;background:#2a1a12;color:#f6ead8;font-size:12px">v1.5</div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="petal" viewBox="0 0 20 40"><path d="M10 0C18 12 18 28 10 40C2 28 2 12 10 0Z"/></symbol>
 <symbol id="ok" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.5 8.3l2.2 2.2 4.8-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
@@ -182,8 +199,8 @@ box-shadow:inset 0 2px 0 rgba(255,255,255,.18),inset 0 -3px 0 rgba(0,0,0,.25),0 
 
 <nav><div class="wrap">
 <a class="logo" href="#top"><svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="#2a1a12" stroke-width="2"/><path d="M20 5L33 28H7Z M20 35L7 12H33Z" fill="none" stroke="#2a1a12" stroke-width="1.6"/><circle cx="20" cy="20" r="2.5" fill="#c8362a"/></svg>Prakriti</a>
-<div class="links"><a href="#quiz">Le quiz</a><a href="#coffrets">Coffrets</a><a href="#boutique">Boutique</a><a href="#objet">L'objet signature</a><a href="#rituel">Rituel</a><a href="#fondatrice">La fondatrice</a></div>
-<a class="btn b-ink" href="#boutique" style="min-height:44px;padding:0 20px" aria-label="Panier">Panier · <span id="cart">0</span></a>
+<div class="links" id="links"><a href="#quiz">Le quiz</a><a href="#coffrets">Coffrets</a><a href="#boutique">Boutique</a><a href="#objet">L'objet signature</a><a href="#rituel">Rituel</a><a href="#fondatrice">La fondatrice</a></div>
+<div class="navr"><a class="btn b-ink cartb" href="#boutique" aria-label="Panier"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="lbl">Panier</span><span id="cart" class="cnt">0</span></a><button class="btn b-cream burger" id="burger" aria-expanded="false" aria-controls="links"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span class="lbl">Menu</span></button></div>
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap band" style="padding-top:0;padding-bottom:0">
@@ -261,7 +278,7 @@ box-shadow:inset 0 2px 0 rgba(255,255,255,.18),inset 0 -3px 0 rgba(0,0,0,.25),0 
 
 <footer class="band"><div class="wrap">
 <p>Prakriti · Rituels ayurvédiques · Côte d'Azur<br>Nos produits sont des produits de bien-être et de soin cosmétique. Ils ne sont pas des médicaments et ne remplacent pas un avis médical.<br>Photos d'ambiance : Unsplash et Pexels (licences libres).</p>
-<p><span class="ver">Maquette v1.4 · 26/11/2026</span></p>
+<p><span class="ver">Maquette v1.5 · 26/11/2026</span></p>
 </div></footer>
 
 <script>
@@ -341,6 +358,7 @@ shop.querySelectorAll('.add').forEach(b=>b.onclick=()=>{nb++;document.getElement
 filt.innerHTML=Object.keys(CAT).map((k,j)=>`<button class="fb" aria-pressed="${j===0}" data-c="${k}">${CAT[k]}</button>`).join('');
 filt.querySelectorAll('.fb').forEach(b=>b.onclick=()=>{filt.querySelectorAll('.fb').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');rs(b.dataset.c)});
 rs('all');
+{const bu=document.getElementById('burger'),ln=document.getElementById('links');bu.onclick=()=>{const o=ln.classList.toggle('open');bu.setAttribute('aria-expanded',o)};ln.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ln.classList.remove('open');bu.setAttribute('aria-expanded','false')}));document.addEventListener('keydown',e=>{if(e.key==='Escape'){ln.classList.remove('open');bu.setAttribute('aria-expanded','false')}});}
 {const L=[...document.querySelectorAll('.links a')];const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){L.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-45% 0px -50% 0px'});L.forEach(a=>{const t=document.querySelector(a.getAttribute('href'));if(t)io.observe(t)});}
 document.getElementById('play').onclick=()=>{document.getElementById('vid').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/hUdHi7ufuuA?autoplay=1&rel=0" title="Vidéo : le PLA" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';};
 document.getElementById('boxes').innerHTML=['V','P','K'].map(k=>`<article class="box" id="box-${k}"><div class="top" style="background:${D[k].g}"><small>${D[k].el}</small><h3 style="font-size:26px;margin:.2em 0 0">${D[k].box}</h3></div><div class="ph"><img src="${PH[k]}" alt="Ambiance du ${D[k].box}" loading="lazy"><span>Photo d'ambiance</span></div><ul>${BOX[k].items.map(t=>`<li><svg width="16" height="16" style="color:${D[k].c}"><use href="#ok"/></svg><span>${t}</span></li>`).join('')}</ul><div class="foot"><span class="price">${BOX[k].p}</span><a class="btn b-cream" href="#quiz">Choisir</a></div></article>`).join('');
